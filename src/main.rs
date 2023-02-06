@@ -4,7 +4,7 @@ fn main(){
     println!("Welcome me Universe!!!");
     println!("I'm a rustacean!!!");
 
-    let mut age:i32 = 34;
+    let  age:i32 = 34;
 
     println!("🔥{}",age);
 }
