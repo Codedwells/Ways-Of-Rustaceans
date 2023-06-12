@@ -1,21 +1,25 @@
-enum Color {
-    Red,
-    Blue,
-    Green,
-    Yellow,
+enum Flavor {
+    Orange,
+    Cola,
 }
 
-fn choose_color(go: Color) {
-    match go {
-        Color::Red => println!("red"),
-        Color::Blue => println!("Blue"),
-        Color::Green => println!("Green"),
-        Color::Yellow => println!("Yellow"),
-        _ => println!("We could not find match"),
+struct Drinkbox {
+    flavoring: Flavor,
+    fluid_oz: f64,
+}
+
+fn print_flavor(my_box: Drinkbox) {
+    match my_box.flavoring {
+        Flavor::Orange => println!("Orange"),
+        Flavor::Cola => println!("Cola"),
     }
 }
 
 fn main() {
-    let dirr = Color::Green;
-    choose_color(dirr)
+    let my_box = Drinkbox {
+        flavoring: Flavor::Orange,
+        fluid_oz: 12.35,
+    };
+
+    print_flavor(my_box);
 }
