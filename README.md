@@ -23,5 +23,5 @@ To compile this Cargo project we would use, while in the directory of your proje
 ``cargo check`` Will check your file for errors without producing an executable.
 
 ## **2. Guessing game in Rust**
-In this [chapter](https://www.youtube.com/watch?v=H0xBSbnQYds&list=PLai5B987bZ9CoVR-QEIN9foz4QCJ0H2Y8&index=2) we made a guessing game in about 40 lines of Rust.
+In this  we made a guessing game in about 40 lines of Rust.
 
