@@ -1,8 +1,9 @@
 fn main() {
-    let my_bool: bool = true;
+    let mut my_number: i32 = 0;
 
-    match my_bool {
-        true => println!("Yeah we will go to the movies"),
-        _ => println!("NO movies for me I have to go to church!"),
+    while my_number < 11 {
+        println!("{my_number}");
+
+        my_number = my_number + 1;
     }
 }
