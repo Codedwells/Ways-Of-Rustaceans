@@ -1,63 +1,46 @@
-enum BoxColor {
-    RED,
-    BLUE,
-    GREEN,
-}
- 
-impl BoxColor {
-    fn print_color(&self) {
-        match self {
-            BoxColor::RED => println!("The color of this box is : Red"),
-            BoxColor::BLUE => println!("The color of this box is : Blue"),
-            BoxColor::GREEN => println!("The color of this box is : Green"),
-        }
-    }
+enum Color {
+    Red,
+    Green,
+    Blue,
 }
 
-struct Dimensions {
-    length: f64,
-    width: f64,
-    depth: f64,
+struct Person {
+    age: i32,
+    name: String,
+    fav_color: Color,
 }
 
-impl Dimensions {
-    fn print_dimensions(&self) {
-        println!("The length is :{}", self.length);
-        println!("The width is :{}", self.width);
-        println!("The depth is :{}", self.depth);
-    }
-}
-
-struct Shippingbox {
-    dimensions: Dimensions,
-    weight: f64,
-    color: BoxColor,
-}
-
-impl Shippingbox {
-    fn new(weight: f64, color: BoxColor, dimensions:Dimensions) -> Self {
+impl Person {
+    fn new(age: i32, name: &str, fav_color: Color) -> Self {
         return Self {
-            weight,
-            dimensions,
-            color,
+            age,
+            name: name.to_owned(),
+            fav_color,
         };
     }
 
-    fn print_box(&self) {
-        self.color.print_color();
-        self.dimensions.print_dimensions();
-        println!("The weight of this box is :{}", self.weight);
+    fn print_info(&self) {
+        let fav_c: String = match self.fav_color {
+            Color::Red => "Red".to_owned(),
+            Color::Green => "Green".to_owned(),
+            Color::Blue => "Blue".to_owned(),
+        };
+        println!("My name is :{} and {} is my favourite color.", self.name, fav_c);
     }
 }
 
 fn main() {
-    let dimensions = Dimensions {
-        length: 34.0,
-        width: 24.0,
-        depth: 14.0,
-    };
+    let more_people = vec![
+        Person::new(9, "Thomas", Color::Green),
+        Person::new(1, "Bryson", Color::Red),
+        Person::new(13, "Jude", Color::Green),
+        Person::new(8, "Tione", Color::Red),
+        Person::new(2, "Halle", Color::Blue)
+    ];
 
-    let blue_box = Shippingbox::new(12.0, BoxColor::BLUE, dimensions);
-
-    blue_box.print_box();
+    for person in more_people {
+        if person.age < 10 {
+            person.print_info();
+        }
+    }
 }

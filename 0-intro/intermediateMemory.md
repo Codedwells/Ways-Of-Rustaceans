@@ -175,3 +175,163 @@ fn main() {
 }
 
 ```
+
+# Vectors
+
+Vectors are arrays or list;
+How to create vecors in Rust;
+
+```rs
+fn main() {
+    let my_nums = vec![1, 2, 3, 4];
+    let mut my_numbers = Vec::new();
+
+    my_nums.push(4);
+
+    println!("{}", my_nums[my_nums.len() - 1])
+}
+```
+
+## Iterating a vector
+
+```rs
+struct Test {
+    score: i32,
+}
+
+fn main() {
+    let my_scores = vec![
+        Test { score: 90 },
+        Test { score: 20 },
+        Test { score: 40 },
+        Test { score: 60 }
+    ];
+
+    let mut total_score: i32 = 0;
+
+    for test in my_scores {
+        total_score = total_score + test.score;
+    }
+
+    println!("{}", total_score)
+}
+```
+
+```rs
+fn main() {
+    let my_list = vec![10, 20, 30, 40];
+
+    for item in &my_list {
+        match item {
+            30 => println!("Thirty"),
+            _ => println!("{}", item),
+        }
+    }
+    println!("The length of the vector is :{}", my_list.len());
+}
+
+```
+
+# String and &str
+
+There are two types of strings;
+
+- **Owned String**
+- **Borrowd String**
+
+### To Create an owned string
+
+```rs
+    let owned_string = "owned string".to_owned();
+    let another_owned = String::from("another string");
+```
+
+### To create a borrowed string
+
+```rs
+fn print_it(data:&str){
+    println!("{:?}",data);
+}
+
+fn main () {
+    print_it("This string will be borrowed");
+}
+
+```
+
+```rs
+struct LineItem {
+    name: String,
+    count: i32,
+};
+
+fn print_name (name:&str){
+    println!("{}",name);
+}
+
+fn main() {
+    let recipt = vec![
+        LineItem {
+            count: 3,
+            name: "cereal".to_owned(),
+        },
+        LineItem {
+            name: String::from("Apple"),
+            count: 3,
+        }
+    ];
+
+    for item in recipt {
+        print_name(&item.name)
+    }
+}
+```
+
+```rs
+enum Color {
+    Red,
+    Green,
+    Blue,
+}
+
+struct Person {
+    age: i32,
+    name: String,
+    fav_color: Color,
+}
+
+impl Person {
+    fn new(age: i32, name: &str, fav_color: Color) -> Self {
+        return Self {
+            age,
+            name: name.to_owned(),
+            fav_color,
+        };
+    }
+
+    fn print_info(&self) {
+        let fav_c: String = match self.fav_color {
+            Color::Red => "Red".to_owned(),
+            Color::Green => "Green".to_owned(),
+            Color::Blue => "Blue".to_owned(),
+        };
+        println!("My name is :{} and {} is my favourite color.", self.name, fav_c);
+    }
+}
+
+fn main() {
+    let more_people = vec![
+        Person::new(9, "Thomas", Color::Green),
+        Person::new(1, "Bryson", Color::Red),
+        Person::new(13, "Jude", Color::Green),
+        Person::new(8, "Tione", Color::Red),
+        Person::new(2, "Halle", Color::Blue)
+    ];
+
+    for person in more_people {
+        if person.age < 10 {
+            person.print_info();
+        }
+    }
+}
+```
