@@ -209,3 +209,8 @@ fn main() {
     }
 }
 ```
+
+# Result
+The resutl represents either success or failure
+
+
