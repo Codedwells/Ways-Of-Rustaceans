@@ -29,3 +29,4 @@ fn pick_choice(input: &str) -> Result<(),String>{
 fn main() {
    let _ =  pick_choice("start");
 }
+
