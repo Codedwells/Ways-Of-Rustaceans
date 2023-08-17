@@ -1,5 +1,6 @@
-mod generics;
 mod traits;
+mod generics;
+mod lifetimes;
 
 fn main() {
     // Traits
@@ -7,4 +8,7 @@ fn main() {
 
     // Generics
     generics::init();
+
+    // Lifetimes
+    lifetimes::init();
 }
