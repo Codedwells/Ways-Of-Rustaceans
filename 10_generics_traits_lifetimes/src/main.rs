@@ -2,7 +2,7 @@ mod traits;
 mod generics;
 mod lifetimes;
 
-fn main() {
+   fn main() {
     // Traits
     traits::init();
 

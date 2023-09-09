@@ -35,6 +35,6 @@ mod tests {
             height: 4,
         };
 
-        assert_eq!(larger.can_hold(&smaller), true);
+        assert!(larger.can_hold(&smaller),"Rectangle cannot hold smaller");
     }
 }
