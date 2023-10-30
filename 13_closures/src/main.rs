@@ -34,6 +34,7 @@ impl Inventory {
 }
 
 fn main() {
+    // Create an invertory of shirts.
     let store = Inventory {
         shirts: vec![ShirtColor::Blue, ShirtColor::Red, ShirtColor::Blue],
     };
